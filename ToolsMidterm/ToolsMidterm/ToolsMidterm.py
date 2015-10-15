@@ -35,12 +35,24 @@ def ListEuclideanLCM(nums):
     for index in range(0, len(nums) - 1):
         nums[index+1] = EuclideanLCM(nums[index+1], nums[index])
     return nums[len(nums) - 1]
+def FibonacciIterative(limit):
+    first = 1
+    second = first
+    nums = [first, second]# this is the list of the first numbers ratios....
+    for index in range (0, limit - 2):
+        first += second#first becomes first plus second, thee next number in the Fibonacci series
+        first = first ^ second#XOR swap
+        second = first ^ second
+        first = first ^ second
+        nums.append((second +0.0) / first)#store the ratios in the nums list at the end. Make one a floating point
+    return nums# return the array
 print("Finally going!")
 #testCase = [2840,3330,4206,42390, 4392]
-testCase = [155,150,145]
-print("Using modulo")
-print(MODifiedEuclidean(testCase, 0))
-print("using minus")
-print(MinusifiedEuclideanGCD(testCase, 0))
+##testCase = [144,89,55]
+#print("Using modulo")
+#print(MODifiedEuclidean(testCase, 0))
+#print("using minus")
+#print(MinusifiedEuclideanGCD(testCase, 0))
+print FibonacciIterative(10)
 #This function use the Euclidean Algoritim to return the greatest common denominator of a set of two numbers.
 #Assume m is less than n and m and n are positive natural numbers.
